@@ -1,0 +1,19 @@
+.tabbas{
+	width: 100%;
+	height: .98rem;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	background: #fff;
+	border-top: 1px solid #e2e2e2;
+}
+.w46h46{
+	width: .46rem;
+	height: .46rem;
+}
+.tabact{
+	color: #5B9AF8
+}
+.color_b2{
+	color: #b2b2b2;
+}

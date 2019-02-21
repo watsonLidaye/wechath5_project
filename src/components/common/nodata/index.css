@@ -1,0 +1,30 @@
+.nodata_wrap {
+  position: relative;
+  padding-top: 1.42rem;
+  padding-bottom: 1.42rem;
+  box-sizing: border-box;
+  background: #fff;
+}
+.nodata_wall {
+  margin: 0 auto;
+}
+.w466h344 {
+  width: 4.66rem;
+  height: 3.44rem;
+}
+.w466h326 {
+  width: 4.66rem;
+  height: 3.66rem;
+}
+.w466h207 {
+  width: 4.66rem;
+  height: 2.07rem;
+}
+.nodata_text {
+  text-align: center;
+  font-size: 0.28rem;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: #666;
+  line-height: 0.17rem;
+}

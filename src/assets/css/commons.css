@@ -1,0 +1,31 @@
+.flex {
+  display: flex;
+}
+.flex_1 {
+  flex: 1;
+}
+.flex_dir_column {
+  flex-direction: column;
+}
+.flex_wrap {
+  flex-wrap: wrap;
+}
+.flex_nowrap {
+  flex-wrap: nowrap;
+}
+.flex_v_center {
+  align-items: center;
+}
+.flex_h_center {
+  justify-content: center;
+}
+.flex_h_between {
+  justify-content: space-between;
+}
+.flex_vh_center {
+  align-items: center;
+  justify-content: center;
+}
+.color_f8f8f8 {
+  color: #f8f8f8;
+}

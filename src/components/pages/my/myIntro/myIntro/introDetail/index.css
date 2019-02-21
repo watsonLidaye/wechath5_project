@@ -1,0 +1,137 @@
+.flex {
+  display: flex;
+}
+.flex_nowrap {
+  flex-wrap: nowrap;
+}
+.flex_1 {
+  flex: 1;
+}
+.flex_v_center {
+  align-items: center;
+}
+.flex_h_center {
+  justify-content: center;
+}
+.flex_h_between {
+  justify-content: space-between;
+}
+.flex_vh_center {
+  align-items: center;
+  justify-content: center;
+}
+.color_333 {
+  color: #333;
+}
+.color_999 {
+  color: #999;
+}
+.bg_fff {
+  background: #fff;
+}
+.border_e2e2e2 {
+  border-bottom: 1px solid #e2e2e2;
+}
+.margin_center {
+  display: block;
+  margin: 0 auto;
+}
+/* intro */
+.intro_panel {
+  max-width: 7.5rem;
+  width: 100%;
+  background: rgba(255, 255, 255, 1);
+  margin: 0 auto;
+  padding: 0.35rem 0.35rem 0;
+  box-sizing: border-box;
+}
+.intro_list {
+  box-sizing: border-box;
+}
+.intro_item {
+  width: 6.8rem;
+  height: 1.9rem;
+  border-radius: 0.14rem;
+  padding: 0.24rem 0.42rem;
+  box-sizing: border-box;
+  margin-bottom: 0.3rem;
+  display: flex;
+  justify-content: space-between;
+}
+.bg_red {
+  background: url('./image/frame_red@2x.png');
+  width: 6.9rem;
+  height: 1.9rem;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.bg_blue {
+  background: url('./image/frame_blue@2x.png');
+  width: 6.9rem;
+  height: 1.9rem;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.high_price {
+  width: 0.95rem;
+  height: 0.91rem;
+}
+.intro_avatar {
+  width: 0.7rem;
+  height: 0.7rem;
+  display: inline-block;
+  border-radius: 50%;
+}
+.color_f8f8f8 {
+  color: #f8f8f8;
+}
+.flex_v_center {
+  display: flex;
+  align-items: center;
+}
+.intro_status {
+  font-size: 0.18rem;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 0.04rem;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  padding: 0.05rem 0.1rem;
+  box-sizing: border-box;
+}
+.color_red {
+  color: #fa917a;
+}
+.color_blue {
+  color: #80b3f4;
+}
+.line {
+  height: 1px;
+  background: #e2e2ee;
+  width: 4.92rem;
+  box-sizing: border-box;
+}
+.stage_item {
+  width: 4.63rem;
+  height: 1.06rem;
+  line-height: 1.06rem;
+  border: 0.02rem dashed rgba(204, 204, 204, 1);
+  border-radius: 0.14rem;
+  display: flex;
+  align-items: center;
+  padding-left: 0.42rem;
+  box-sizing: border-box;
+}
+.stage_item::before {
+  position: absolute;
+  content: '';
+  width: 0.02rem;
+  height: 1.7rem;
+  background: #3fdc98;
+}
+.icon_36 {
+  width: 0.36rem;
+  height: 0.36rem;
+  display: inline-block;
+}

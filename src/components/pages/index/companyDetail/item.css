@@ -1,0 +1,130 @@
+#companyDetail{
+	width: 100%;
+	max-width: 7.5rem;
+	margin: 0 auto;
+	position: relative;
+	background: #fff;
+}
+.header{
+	width: 100%;
+	height: 2.4rem;
+	background: url('../../../../assets/image/index/top.png');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+.header_img{
+	width:1.40rem;
+height:1.40rem;
+background:rgba(255,255,255,1);
+border:1px solid rgba(226, 226, 226, 1);
+box-shadow:0px .04rem .06rem 0px rgba(0, 0, 0, 0.05);
+border-radius:50%;
+position: absolute;
+left: .35rem;
+bottom: -.7rem;
+}
+.mb100{
+	margin-bottom: 1rem;
+}
+.logo_img{
+	width: 1rem;
+	height: 1rem;
+	border-radius: 50%;
+	border: 1px solid rgb(226,226,226)
+}
+.color_99{
+	color: #999;
+}
+.logo_img_height{
+	height: 1rem
+}
+.h90{
+	height: .9rem;
+}
+.b-b-d{
+	border-bottom: 1px solid #e2e2e2;
+}
+.nav_list{
+	color: #b2b2b2;
+	height: 100%;
+	font-size: .3rem;
+	border-bottom: .03rem solid transparent;
+}
+.act{
+	color: #666666;
+	border-color:#5E98D9;
+}
+.textline{
+	line-height: .4rem;
+	font-size: .28rem;
+	color: #666;
+}
+.pb100{
+	padding-bottom: 1rem;
+}
+.w190{
+	width: 1.9rem;
+}
+.w490{
+	width: 4.9rem;
+	border-bottom:1px solid #E2E2E2;
+}
+.ft38{
+	font-size: .38rem;
+}
+.srcoll{
+	overflow-x: auto;
+}
+.bottom_img{
+	width:3.90rem;
+height:2.20rem;
+border-radius:.14rem;
+display: inline-block;
+}
+.bto_box{
+	white-space:nowrap;
+}
+.w22h26{
+	width: .22rem;
+	height: .26rem;
+}
+.h182{
+	height: 1.82rem;
+}
+.w115{
+	width: 1.15rem;
+}
+.w565{
+	width: 5.65rem;
+	border-bottom: 1px solid #e2e2e2;
+}
+.iitem_header{
+	width: 1rem;
+	height: 1rem;
+	border-radius: 50%;
+	box-sizing: border-box;
+	border: 1px solid #e2e2e2
+}
+.label_price{
+	width:.66rem;
+	height:.36rem;
+	font-size: .22rem;
+	background:-webkit-linear-gradient(302deg, rgba(251,116,90,1), rgba(249,180,162,1));
+	background:-o-linear-gradient(302deg, rgba(251,116,90,1), rgba(249,180,162,1));
+	background:linear-gradient(32deg, rgba(251,116,90,1), rgba(249,180,162,1));
+	border-radius:.06rem;
+	text-align: center;
+	line-height: .36rem;
+	color:#fff;
+}
+.color_E77956{
+	color: #E77956
+}
+.font_weight{
+	font-weight: bold;
+}
+.w200{
+	max-width: 3rem;
+	white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+	line-height: .36rem;
+}

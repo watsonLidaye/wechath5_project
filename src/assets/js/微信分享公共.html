@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta content="telephone=no" name="format-detection" /> 
+    <title>活动</title>
+	<script type="text/javascript">
+        function isWeiXin() {
+            var ua = window.navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        if (!isWeiXin()) {
+         //   location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=undefined&redirect_uri=undefined&response_type=code&scope=snsapi_base&state=&connect_redirect=1";
+        }
+    </script>
+	<link href="../css/main.css?v=201700000016" rel="stylesheet">
+	<link  href="../css/swiper.min.css?v=201700000015" rel="stylesheet" />
+    <script type="text/javascript" src="../js/lib/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="../js/lib/common.js?_=11111113111147"></script>
+    <script type="text/javascript" src="../js/lib/jweixin-1.0.0.js"></script>
+    
+    <script type="text/javascript">
+    	
+
+        // var api_url ="https://api.weixin.kemai.com.cn/"; // 'http://weixin-pre.kemai.com.cn/KMMicro_API/';
+//	var api_url ="http://weixin-test.kemai.com.cn/KMMicro_API/";
+// 	 var api_url ="http://192.168.250.162/KMMicro_API/";
+          var api_url ='https://retail.weixin.kemai.com.cn/';//新正式环境
+ 	
+	var obj_post={};
+		var rom = new Date("2018/03/02 22:48").getTime();
+    	function addJs_fn(src) {
+    	    if (src) {
+    	        var obj = $("<script>");
+    	        obj.attr({
+    	            src: src + "?_=" + rom,
+    	            type: 'text/javascript'
+    	        });
+    	        $("head").append(obj);
+    	    }
+    	}
+    	function addCss_fn(src) {
+    	    if (src) {
+    	        var obj = $("<link>");
+    	        obj.attr({
+    	            rel: 'stylesheet',
+    	            type: 'text/css',
+    	            href: src + "?_=" + rom
+    	        });
+    	        $("head").append(obj);
+    	    }
+    	}
+        $(function () {        
+			if (km.GetQueryString("fx_") === "1") { //从分享中打开
+			    var redirect_uri = km.GetQueryString("redirect_uri");
+				
+	            var url= "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + km.GetQueryString("appid") + "&redirect_uri=" + redirect_uri +"&response_type=code&scope=snsapi_base&component_appid=" + km.GetQueryString("component_appid") + "&state=#wechat_redirect";
+	             location.href =url;
+	             return false;
+	        }
+			
+            $("[rsid='maxContent']").empty();
+            //sessionStorage.id= "52655"; sessionStorage.oi= "oP_0vv0QjjLLf5ZtH-6ShBKyG0LQ";	
+			if(km.GetQueryString("oi")){
+				sessionStorage.oi=km.GetQueryString("oi");
+                sessionStorage.id=km.GetQueryString("id");
+			}
+               if (!sessionStorage.oi||sessionStorage.oi == "undefined") {
+            	var params = {
+	                Code: km.GetQueryString("code"),
+	                CustId: km.GetQueryString("id")
+	            };
+                $.ajax({
+                    type: "post",
+		            url: api_url + "api/basic/OpenId/GetOpenIdInfo",
+		            data: params,
+		            async: false,
+                    success: function (datas) {                  
+                        //datas = JSON.parse(datas);
+                        console.log(datas)
+			 			sessionStorage.token = datas.extInfo;
+                        if (datas.code=="0000") {
+                            datas = datas.data;
+                            sessionStorage.oi=datas.openid;
+                            sessionStorage.id=km.GetQueryString("id")
+                            obj_post.barch()
+                        }
+                        else if(datas.code=="40163"){
+                        	var params = {
+									CustID: km.GetQueryString("id")
+								},
+								post_url = api_url + "api/basic/CustInfo/GetCustInfoById";
+							if(isWeiXin()) {
+								// 是微信浏览器，执行操作
+								 $.post(post_url,params).done(function(datas) {
+									if(datas.code == '0000') {
+									var	url = location.protocol + "//" + location.host + location.pathname + "?actv="+km.GetQueryString("actv")+"&id=" +km.GetQueryString("id") ; 
+//									授权地址https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd070eb57539e9146&redirect_uri=http%3a%2f%2fweixin-test.kemai.com.cn%2fgroup%2fview%2fconfig.html%3factv%3dnew_home_pt%26id%3d959534&response_type=code&scope=snsapi_base&component_appid=wx615b1c0220b57fce#wechat_redirect
+										window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + datas.data.AppID + "&redirect_uri=" + escape(url) + "&response_type=code&scope=snsapi_base&component_appid="+datas.extInfo+"#wechat_redirect "                			
+										return false;
+									}else{
+										km.msg.alert({text:datas.msg});
+									}
+								})
+							} else {　　
+								return false;
+							}
+                        }
+                        else {
+                            km.msg.alert({
+                                text: datas["msg"], ConfirmFunction: function () {
+                                    //window.location.reload();
+                                    WeixinJSBridge.call('closeWindow');
+                                }
+                            });
+                        }
+                        return false;
+                    },
+                    error: function () {                      
+                        km.msg.tip("网络加载失败，请稍后再试!",1200);                     
+
+                    }
+                });
+            	}else{
+            		 obj_post.barch()
+            	}
+            function onBridgeReady() {
+                WeixinJSBridge.call('hideOptionMenu');
+            }
+            
+
+            var getDrawTypeView = function(drawType) {
+                //$.fn._fn()
+                console.log(drawType)
+                switch (drawType) {
+                    case "goods_pt":
+                        document.title = "商品详情";					
+                        break;
+                    case "group_pt":
+                        document.title = "参团";	
+                    	break;
+                    case "home_pt":
+                    	document.title = "拼团";	
+                    	break;
+                    case "confirm_pt":
+                    	document.title = "确认";	
+                    	break;
+                    case "newaddress_pt":
+                    	document.title = "收货地址";	
+                    	break;
+                    case "addresslist_pt":
+                    	document.title = "收货地址";	
+                    	break;
+                    case "orders_pt":
+                    	document.title = "订单";	
+                    	break;
+                    case "order_pt":
+                    	document.title = "订单详情";	
+                    	break;
+                    case "payok_pt":
+                    	document.title = "支付完成";	
+                    	break;
+					
+					case "goods_ms":
+                        document.title = "活动详情";					
+                        break;
+					case "confirm_ms":
+                    	document.title = "确认";	
+                    	break;
+                    case "order_ms":
+                    	document.title = "订单详情";	
+                    	break;
+
+                        //餐饮秒杀
+                    case "newaddress_cyms":
+                        document.title = "收货地址";
+                        break;
+                    case "addresslist_cyms":
+                        document.title = "收货地址";
+                        break;
+                    case "orders_cyms":
+                        document.title = "订单";
+                        break;
+                    case "goods_cyms":
+                        document.title = "活动详情";
+                        break;
+                    case "confirm_cyms":
+                        document.title = "确认";
+                        break;
+                    case "order_cyms":
+                        document.title = "订单详情";
+                        break;       
+                    case "new_ms":
+                        document.title = "秒杀";
+                        break;
+                    case "content_ms":
+                        document.title = "活动详情";
+                        break;    
+                    default:
+                        return "list";
+                        break;
+                }
+                if (drawType != "payok_pt" && drawType != "order_pt"&& drawType != "goods_pt" && drawType != "home_pt") {
+	                if (typeof WeixinJSBridge == "undefined") {
+		                if (document.addEventListener) {
+		                    document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+		                } else if (document.attachEvent) {
+		                    document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+		                    document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+		                }
+		            } else {
+		                onBridgeReady();
+		            }
+	            }
+            };
+           
+            $.getJSON("../config/app.json?_=" + rom, {}, function (data) {
+            	console.log(data)
+                var actionView=km.GetQueryString("actv")
+                var configJson = data[actionView];
+//              console.log(configJson["view"]);
+                if (typeof (configJson) != "object") { return false; }
+
+                if (configJson["css"]) {
+                    addCss_fn(configJson["css"]);
+                }
+                
+				if (actionView === "list") {
+					$("#maxContent").html("不是有效的页面，请确认后重试");
+					return false;
+				} 
+                $("#maxContent").load(configJson["view"] + "?_=" + rom, function () {
+                	
+                    window.scrollTo(0, 0); 
+					if (configJson["js"]) {
+						
+						addJs_fn(configJson["js"]);
+					}
+				
+                    getDrawTypeView(actionView);
+                });
+            }).fail(function (data) {
+                console.log(data);
+            });
+        });
+        function getBytesCount2(str) {
+            if (str == null) {
+                return 0;
+            }
+            else {
+                return (str.length + str.replace(/[\u0000-\u00ff]/g, "").length);
+            }
+        }
+        var weixin_fx_fn = function(url,imgUrl,title,desc){
+        	var id=""
+        	if(sessionStorage.id){
+        		id=sessionStorage.id
+        	}else{
+        		id=km.GetQueryString("id")
+        	}
+            //url 当前页面的地址
+	    	var params_sdk = {
+					url: location.href
+				},
+				api_url_sdk= api_url +"api/Basic/OpenId/ItudeSign/"+id;
+		
+	 		$.post(api_url_sdk, params_sdk).done(function (datas) {
+	            console.log(datas)
+	            if (datas.code === "0000") {
+	              	var extInfo = datas.extInfo;
+	                datas = JSON.parse(datas.data);
+	                console.log(datas);
+	                console.log(params_sdk.url.split("?")[0] + share_params(url||km.GetQueryString("redirect_uri", extInfo)+"&id="+sessionStorage.id, datas.appId,km.GetQueryString("component_appid", extInfo)))
+	                var wxjson = {
+	                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+	                    appId: datas.appId, // 必填，公众号的唯一标识
+	                    timestamp: datas.timeStamp, // 必填，生成签名的时间戳
+	                    nonceStr: datas.nonceStr, // 必填，生成签名的随机串
+	                    signature: datas.signature, // 必填，签名，见附录1
+	                    jsApiList: [
+	                    'onMenuShareAppMessage', 
+	                    'onMenuShareTimeline',
+	                    'hideMenuItems',
+	                     'getLocation', 
+		                 'openLocation',
+		                 'hideMenuItems',
+		                 'showMenuItems'
+	                    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+	                };
+	                console.log(JSON.stringify(wxjson));
+                    //装入配置
+	                wx.config(wxjson);
+	                wx.ready(function () {
+	                    wx.hideMenuItems({
+	                        menuList: ['menuItem:copyUrl'] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+	                    });
+	                    wx.showMenuItems({
+	                        menuList: ['menuItem:share:appMessage','menuItem:share:timeline','menuItem:addContact'] // 要显示的菜单项，所有menu项见附录3
+	                    });
+	                    
+	                    wx.onMenuShareAppMessage({
+	                        title: title, // 分享标题
+	                        desc: desc||document.title, // 分享描述
+	                        link: params_sdk.url.split("?")[0] + share_params(url||km.GetQueryString("redirect_uri", extInfo), datas.appId,km.GetQueryString("component_appid", extInfo)), // 分享链接
+	                        imgUrl: imgUrl, // 分享图标
+	                        type: 'link', // 分享类型,music、video或link，不填默认为link
+	                        success: function () {
+	
+	                            // 用户确认分享后执行的回调函数
+	                        },
+	                        cancel: function () {
+	
+	                            // 用户取消分享后执行的回调函数
+	                        }
+	                    });
+	                    wx.onMenuShareTimeline({
+	                        title: title||document.title, // 分享标题
+	                        link: params_sdk.url.split("?")[0] + share_params(url||km.GetQueryString("redirect_uri", extInfo), datas.appId,km.GetQueryString("component_appid", extInfo)), // 分享链接
+	                        imgUrl: imgUrl, // 分享图标
+	                        success: function () {
+								
+	                        },
+	                        cancel: function () {
+	                        }
+	                    });
+	                });
+	                wx.error(function (res) {
+						 km.msg.alert({text:"调用微信API参数错误!"});
+	                  
+	                });
+	                
+	            }
+	            else {
+	                 //km.msg.alert({text:datas.msg});
+	            }
+	        }).fail(function (data) {
+	            km.msg.alert({text:"连接服务器失败，请稍后再试!"});
+	             
+	        });
+    	}
+        
+       var post_branchs_fn=function(lat,lng){ //获取门店
+       	var params={
+       		"CustId": km.GetQueryString("id")||sessionStorage.id,
+       		"lat":lat,
+       		"lng":lng
+       	}
+            post_url = api_url + "api/Basic/BranchInfo/GetList";
+            console.log(JSON.stringify(params))
+	        km.loading.post_min(post_url, params).done(function (datas) {
+	        	console.log(datas);
+	        	var isSend=false;
+	            if (datas.code == "0000") {
+	            	if(datas.data.length<=1){
+	            		$(".item_nav .item_nav_content .br").hide();
+	            		$(".item_nav .item_nav_content").addClass("disabled")
+	            	}
+	            	$.each(datas.data,function(){
+	            		if(this.IsSend==1){
+	            			isSend=true;
+			            	sessionStorage.BranchName=this.BranchName;
+			            	sessionStorage.BranchNo=this.BranchNo;
+			            	$(".item_nav .item_nav_content_name").html(this.BranchName);
+	            			return false;
+	            		}
+	            	})
+				if(!isSend){
+                             km.msg.alert({
+                                text: "您附近没有配送的门店！", ConfirmFunction: function () {
+                                    //window.location.reload();
+                                    WeixinJSBridge.call('closeWindow');
+                                }
+                            });
+                            return false;
+	            		}
+	            	obj_post.post_goods_fn()
+	            }
+	           }) 
+	    }  
+	     var getlocation=function(){
+        	var id=""
+        	if(sessionStorage.id){
+        		id=sessionStorage.id
+        	}else{
+        		id=km.GetQueryString("id")
+        	}
+	    	var params_sdk = {
+					url: location.href
+				},
+				api_url_sdk= api_url +"api/Basic/OpenId/ItudeSign/"+id;
+		
+	 		$.post(api_url_sdk, params_sdk).done(function (datas) {
+	            console.log(datas)
+	            if (datas.code === "0000") {
+	              	var extInfo = datas.extInfo;
+	                datas = JSON.parse(datas.data);
+	                console.log(datas);
+	                var wxjson = {
+	                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+	                    appId: datas.appId, // 必填，公众号的唯一标识
+	                    timestamp: datas.timeStamp, // 必填，生成签名的时间戳
+	                    nonceStr: datas.nonceStr, // 必填，生成签名的随机串
+	                    signature: datas.signature, // 必填，签名，见附录1
+	                    jsApiList: [
+	                     'getLocation', 
+		                 'openLocation',
+		                 'hideMenuItems',
+		                 'showMenuItems'
+	                    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+	                };
+	                console.log(JSON.stringify(wxjson));
+	                wx.config(wxjson);
+	                wx.ready(function () {
+	                   	 wx.getLocation({
+	                     type: 'gcj02', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+	                     success: function (res) {
+	                         var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+	                         var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+	                         var speed = res.speed; // 速度，以米/每秒计
+	                         var accuracy = res.accuracy; // 位置精度
+	                         var geolocation_datas_ms = {
+	                             lat: latitude,
+	                             lng: longitude
+	                         };
+	                         post_branchs_fn(latitude,longitude)
+	                         sessionStorage.geolocation_datas_ms=geolocation_datas_ms
+	                     },
+	                     fail: function () {
+							post_branchs_fn("22.54605355", "114.02597366")
+							sessionStorage.geolocation_datas_ms={
+								"lat":"22.54605355",
+								"lng":"114.02597366"
+								}
+	                     },
+	                     cancel: function () {
+	                     }
+	                 });
+	                });   
+	                     wx.error(function (res) {
+						 km.msg.alert({text:"调用微信API参数错误!"});
+	                  
+	                });
+	                }
+		            else {
+	                 //km.msg.alert({text:datas.msg});
+	            }
+	        })
+    	
+        }
+		obj_post.barch=function (){
+			var br=km.GetQueryString("br")||sessionStorage.BranchNo
+	        if(!br&&km.GetQueryString("actv")=="new_ms"||!br&&km.GetQueryString("actv")=="new_home_pt"){
+	        	getlocation()
+	        }else{
+	        	sessionStorage.BranchNo=br;
+	        	if(km.GetQueryString("actv")=="new_ms"||km.GetQueryString("actv")=="new_home_pt"){
+	        		setTimeout(function(){
+	        		obj_post.post_goods_fn();
+		        	$(".item_nav .item_nav_content_name").html(sessionStorage.BranchName);
+		        	},500)
+	        	}
+	        }
+		}
+         function share_params(url, appId,component_appid) {
+         	
+            return "?fx_=1&appid=" + appId + "&redirect_uri=" + url + "&component_appid=" + component_appid;
+        }
+ 		
+    </script>
+    		<script>
+			//获得屏幕大小   ？
+			//效果图   =   640
+			//fontsize   获得屏幕大小/效果图*100
+			function computedWidth(){
+				var screenWidth = document.documentElement.clientWidth;
+				var width = 750;
+				if(screenWidth >= width){
+					document.documentElement.style.fontSize = '100px'
+				}
+				else{
+					var fontsize = (screenWidth/width)*100 + 'px';
+					document.documentElement.style.fontSize = fontsize;
+					console.log(fontsize,screenWidth)
+				}
+			}
+			
+			//第一次进入需要计算
+			computedWidth();
+			//屏幕宽度变化时
+			window.addEventListener('resize', computedWidth);
+			//横竖屏切换时
+			window.addEventListener('orientationchange', computedWidth);
+		</script>
+
+</head>
+<body>
+   <div id="maxContent" style="width:100%; "></div>
+   
+</body>
+</html>

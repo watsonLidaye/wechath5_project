@@ -1,0 +1,329 @@
+/* public */
+.flex {
+  display: flex;
+}
+.flex_1 {
+  flex: 1;
+}
+.flex_nowrap {
+  flex-wrap: nowrap;
+}
+.flex_v_center {
+  align-items: center;
+}
+.flex_h_center {
+  justify-content: center;
+}
+.flex_h_between {
+  justify-content: space-between;
+}
+.flex_vh_center {
+  align-items: center;
+  justify-content: center;
+}
+.color_333 {
+  color: #333;
+}
+.color_999 {
+  color: #999;
+}
+.bg_fff {
+  background: #fff;
+}
+.border_e2e2e2 {
+  border-bottom: 1px solid #e2e2e2;
+}
+.margin_center {
+  display: block;
+  margin: 0 auto;
+}
+/* account */
+.account_panel {
+  width: 100%;
+  max-width: 7.5rem;
+  height: 100%;
+  background: rgba(255, 255, 255, 1);
+  margin: 0 auto;
+}
+.account_wrap {
+  padding: 0.32rem 0.35rem;
+  box-sizing: border-box;
+}
+.account_hd {
+  display: flex;
+  align-items: center;
+}
+.avatar {
+  width: 0.88rem;
+  height: 0.88rem;
+  display: block;
+  border-radius: 50%;
+}
+.user_name {
+  margin-left: 0.28rem;
+  font-size: 0.42rem;
+  font-family: PingFang-SC-Heavy;
+  font-weight: 800;
+  color: rgba(51, 51, 51, 1);
+}
+.account_main {
+  margin-top: 0.32rem;
+}
+.account_item {
+  width: 6.8rem;
+  height: 2.2rem;
+  border-radius: 0.14rem;
+  overflow: hidden;
+  padding: 0.24rem 0.42rem;
+  box-sizing: border-box;
+  box-shadow: 0 0.14rem 0.3rem rgba(0, 0, 0, 0.18);
+}
+.account_title {
+  padding: 0.05rem 0.1rem;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 0.04rem;
+  display: inline-block;
+}
+.icon_arrow {
+  width: 0.26rem;
+  height: 0.26rem;
+  display: inline-block;
+  margin-left: 0.1rem;
+}
+.pt32 {
+  padding-top: 0.32rem;
+}
+.pb32 {
+  padding-bottom: 0.32rem;
+}
+.color_fff {
+  color: #fff;
+}
+.color_grey {
+  font-size: 0.18rem;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(119, 136, 180, 1);
+}
+.color_golden {
+  font-size: 0.18rem;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  background: #a18859;
+  color: rgba(249, 217, 154, 1);
+}
+.color_brown {
+  color: #a18859;
+}
+.color_333 {
+  color: #333;
+}
+.bg_grey {
+  background: url('./image/frame_black@2x.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.bg_golden {
+  background: url('./image/frame_gold@2x.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.account_balance_wrap {
+  padding-top: 0.16rem;
+  padding-bottom: 0.1rem;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+.account_balance {
+  font-size: 0.64rem;
+  line-height: 0.64rem;
+  display: inline-block;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+}
+.cny {
+  font-size: 0.32rem;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+}
+.account_op {
+  margin-top: 0.66rem;
+  border-top: 1px solid rgba(226, 226, 226, 1);
+}
+.account_op_item {
+  padding: 0.32rem 0;
+  font-size: 0.32rem;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(226, 226, 226, 1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dark_screen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 99;
+}
+.withdraw_box {
+  width: 5.64rem;
+  height: 4.16rem;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 0.08rem;
+  position: fixed;
+  top: 3.95rem;
+  left: 0.93rem;
+  right: 0.93rem;
+  z-index: 128;
+}
+.withdraw_title {
+  border-bottom: 1px solid rgba(226, 226, 226, 1);
+  font-size: 0.32rem;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+  padding: 0.24rem 0.42rem;
+  box-sizing: border-box;
+}
+.withdraw_form {
+  width: 3.32rem;
+  padding-top: 0.5rem;
+  box-sizing: border-box;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.withdraw_price {
+  padding: 0.32rem 0;
+  box-sizing: border-box;
+  border-bottom: 0.02rem solid rgba(51, 51, 51, 1);
+  font-size: 0.32rem;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  outline: none;
+  text-align: center;
+}
+.withdraw_price::-webkit-input-placeholder {
+  color: rgba(204, 204, 204, 1);
+}
+.next_step_btn {
+  width: 3.32rem;
+  height: 0.8rem;
+  background: linear-gradient(
+    0deg,
+    rgba(251, 116, 90, 1),
+    rgba(249, 180, 162, 1)
+  );
+  border-radius: 0.1rem;
+  font-size: 0.32rem;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  text-align: center;
+  line-height: 0.8rem;
+  color: #fff;
+  margin-top: 0.5rem;
+}
+/* unique */
+.confirm_panel {
+  width: 5.64rem;
+  background: #fff;
+  border-radius: 0.08rem;
+  padding-bottom: 0.52rem;
+  box-sizing: border-box;
+  position: fixed;
+  top: 1rem;
+  left: 0.93rem;
+  right: 0.93rem;
+  z-index: 128;
+}
+.confirm_title {
+  font-size: 0.32rem;
+  line-height: 0.8rem;
+  padding-left: 0.42rem;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e2e2e2;
+}
+.confirm_control {
+  padding: 0 0.42rem;
+  box-sizing: border-box;
+}
+.input_wrapper {
+  padding: 0.32rem 0.42rem;
+  box-sizing: border-box;
+}
+.auth_wrapper {
+  height: 0.87rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.auth_code_input {
+  font-size: 0.32rem;
+  height: 100%;
+  line-height: 1;
+  outline: none;
+  font-weight: 500;
+  width: 2.32rem;
+}
+.auth_code_input::-webkit-input-placeholder {
+  color: rgba(204, 204, 204, 1);
+}
+.auth_code_btn {
+  width: 2.1rem;
+  height: 0.6rem;
+  line-height: 0.6rem;
+  text-align: center;
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.24rem;
+  background: linear-gradient(
+    0deg,
+    rgba(73, 142, 247, 1),
+    rgba(170, 212, 255, 1)
+  );
+  opacity: 0.9;
+  border-radius: 0.1rem;
+}
+.auth_code_btn.interval {
+  background: linear-gradient(
+    -32deg,
+    rgba(178, 178, 178, 1),
+    rgba(204, 204, 204, 1)
+  );
+}
+.back_btn {
+  width: 2.33rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  font-size: 0.32rem;
+  color: #fb775d;
+  text-align: center;
+  border: 0.02rem solid rgba(251, 116, 90, 1);
+  opacity: 0.9;
+  border-radius: 0.1rem;
+  box-sizing: border-box;
+}
+.confirm_btn {
+  width: 2.32rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  font-size: 0.32rem;
+  color: #fefefe;
+  text-align: center;
+  background: linear-gradient(
+    0deg,
+    rgba(251, 116, 90, 1),
+    rgba(249, 180, 162, 1)
+  );
+  border-radius: 0.1rem;
+}

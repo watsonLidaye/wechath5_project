@@ -1,0 +1,155 @@
+.intro_panel {
+  width: 7.5rem;
+  height: 13.34rem;
+  background: #fff;
+  margin: 0 auto;
+}
+.intro_list {
+  padding: 0.32rem 0.35rem 0;
+  box-sizing: border-box;
+}
+.intro_item {
+  width: 6.8rem;
+  height: 1.9rem;
+  border-radius: 0.14rem;
+  padding: 0.24rem 0.42rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px 0 rgba(7, 17, 27, 0.1);
+}
+.bg_grey {
+  background: url('./image/frame_grey.png');
+  width: 6.9rem;
+  height: 1.9rem;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.bg_red {
+  background: url('./image/frame_red.png');
+  width: 6.9rem;
+  height: 1.9rem;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.bg_blue {
+  background: url('./image/frame_blue.png');
+  width: 6.9rem;
+  height: 1.9rem;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.high_price {
+  width: 0.95rem;
+  height: 0.91rem;
+}
+.intro_avatar {
+  width: 0.7rem;
+  height: 0.7rem;
+  display: inline-block;
+  border-radius: 50%;
+}
+.intro_status {
+  font-size: 0.18rem;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 0.04rem;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  padding: 0.05rem 0.1rem;
+  box-sizing: border-box;
+}
+.color_red {
+  color: #fa917a;
+}
+.color_blue {
+  color: #80b3f4;
+}
+.color_grey {
+  color: #ccc;
+}
+.reward_num {
+  font-size: 0.8rem;
+  font-family: DINCond-Bold;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+}
+.intro_reward {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+/* intro_step */
+.intro_step {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.49rem 0 0.32rem;
+  box-sizing: border-box;
+  transition: 0.38s;
+}
+.step_title {
+  font-size: 0.4rem;
+  font-weight: 700;
+  color: #333;
+}
+.step_titleline {
+  height: 1px;
+  width: 4.92rem;
+  background: #e2e2ee;
+}
+/* step_vertical */
+.step_vertical {
+  height: 100%;
+}
+.step_item {
+  height: 1.06rem;
+  line-height: 1.06rem;
+  width: auto;
+  min-width: 4.63rem;
+  position: relative;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+  border: 0.02rem dashed rgba(204, 204, 204, 1);
+  border-radius: 0.14rem;
+}
+.step_head {
+  position: relative;
+  float: left;
+  height: inherit;
+}
+.step_head .step_icon {
+  width: 0.36rem;
+  height: 0.36rem;
+  margin: 0.35rem;
+  position: relative;
+}
+.step_line {
+  position: absolute;
+  width: 0.02rem;
+  height: 1.7rem;
+  left: 0.52rem;
+  top: 0.71rem;
+  display: block;
+  z-index: 1;
+  background: #3fdc98;
+}
+.step_main {
+  font-size: 0.32rem;
+  color: #333;
+  width: auto;
+  text-align: left;
+  float: left;
+}
+.step_date {
+  position: absolute;
+  right: 0;
+  bottom: -0.35rem;
+  font-size: 0.24rem;
+  color: #999;
+}

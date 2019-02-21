@@ -1,0 +1,101 @@
+#inputfile{
+	width: 100%;
+	max-width: 7.5rem;
+	margin: 0 auto;
+	position: relative;
+	background: #f2f2f2;
+}
+.header{
+	width: 100%;
+	height: 3.73rem;
+	background-image: url('../../../../assets/image/index/bg_up.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	line-height: 3.73rem;
+}
+.w327h101{
+	width: 3.27rem;
+	height: 1rem;
+}
+.header_input_name{
+	width:6.80rem;
+	height:.80rem;
+	background:rgba(255,255,255,1);
+	border-radius:.14rem;
+	
+}
+.header_input{
+	position: absolute;
+	bottom: 0;
+	left: .35rem;
+}
+.w680{
+	width: 6.8rem;
+	margin: 0 auto
+}
+.sex_age{
+	width: 3.32rem;
+	height: .8rem;
+	background:rgba(255,255,255,1);
+	border-radius:.14rem;
+}
+.w36h36{
+	width: .36rem;
+	height: .36rem;
+}
+.pb48{
+	padding-bottom: .48rem;
+}
+.pb100{
+	padding-bottom: 1rem;
+}
+.bottom_btn{
+	width:6.80rem;
+height:.90rem;
+line-height: .9rem;
+background:linear-gradient(0deg,rgba(73,142,247,1),rgba(170,212,255,1));
+opacity:0.9;
+border-radius:.1rem;
+margin: 0 auto;
+text-align: center;
+color: #fff;
+font-size: .3rem;
+}
+.bg_b{
+	background: rgba(0,0,0,.7);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+.bg_ff{
+	background: #fff;
+}
+.picksex{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index:101;
+	transition: all .3s linear
+}
+.dwon{
+	transform: translate3d(0,500px,0);
+}
+.recommend{
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 20;
+	line-height: .78rem;
+	padding-left: .4rem;
+	color: #999;
+}
+.plinput{
+	padding-left: 1.5rem;
+}
+.borderl{
+	border:1px solid #84B6FA;
+	color:#84B6FA;
+}

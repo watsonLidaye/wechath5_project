@@ -1,0 +1,141 @@
+#index{
+	width: 100%;
+	max-width: 7.5rem;
+	margin: 0 auto;
+	position: relative;
+}
+.banner{
+	width: 100%;
+	height: 3.5rem;
+}
+.search{
+	width: 6.8rem;
+	height: .6rem;
+	position: absolute;
+	left: .35rem;
+	top: .32rem;
+	z-index: 10
+}
+.l60{
+	line-height: .6rem;
+	border-radius: .34rem;
+	background: rgba(255,255,255,.5);
+}
+.bg_ff{
+background: rgba(255,255,255,1);
+}
+.seach_btn{
+	font-size: .24rem;
+	position: absolute;
+	z-index: 20;
+	top:.22rem;
+	left: 50%;
+	margin-left: -1.8rem;
+}
+.headnav{
+	width: 100%;
+	height: 1.3rem;
+	background: #fff;
+}
+.h24{
+	font-size: .26rem;
+	height: .24rem;
+	border-right:1px solid #B2B2B2;
+}
+.h24:last-child{
+	border-right:0;
+}
+.w28h28{
+	width: .28rem;
+	height: .28rem;
+	background: blue;
+}
+.navbto{
+	width: 100%;
+	height: .16rem;
+	background-color: #EFEFF4
+}
+.label_price{
+	width:.66rem;
+	height:.36rem;
+	font-size: .22rem;
+	background:-webkit-linear-gradient(302deg, rgba(251,116,90,1), rgba(249,180,162,1));
+	background:-o-linear-gradient(302deg, rgba(251,116,90,1), rgba(249,180,162,1));
+	background:linear-gradient(32deg, rgba(251,116,90,1), rgba(249,180,162,1));
+	border-radius:.06rem;
+	text-align: center;
+	line-height: .36rem;
+	color:#fff;
+}
+.ft30{
+	font-size: .3rem;
+}
+.index_money{
+	font-family:PingFang-SC-Medium;
+	font-weight:500;
+	color:rgba(231,121,86,1);
+}
+.flex_warp{
+	display: flex;
+	flex-wrap: wrap;
+}
+.label_index{
+	width:1rem;
+	height:.46rem;
+	background:rgba(241,249,251,1);
+	border-radius:.06rem;
+	text-align: center;
+	line-height: .46rem;
+	color: #999;
+	font-size: .22rem;
+	margin-right: .16rem;
+}
+.logo_img{
+	width: 1rem;
+	height: 1rem;
+	border-radius: 50%;
+	border: 1px solid rgb(226,226,226)
+}
+.color_99{
+	color: #999;
+}
+.logo_img_height{
+	height: 1rem
+}
+.pb_tabbas{
+	
+	background: #fff;
+}
+.tabbas{
+	width: 100%;
+	height: .98rem;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	background: #fff;
+	border-top: 1px solid #000;
+}
+.w46h46{
+	width: .46rem;
+	height: .46rem;
+}
+.tabact{
+	color: #5B9AF8
+}
+.w32h32{
+	width: .32rem;
+	height: .32rem;
+}
+.top{
+	width: .8rem;
+	height: .8rem;
+	position: absolute;
+	right: 0;
+	bottom:0;
+}
+.pb100{
+	padding-bottom: 1.2rem;
+	font-size: .20rem;
+	padding-top: .2rem;
+	color: #999;
+}
